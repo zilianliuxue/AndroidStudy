@@ -427,7 +427,7 @@ public class RecyclerAdapter  extends RecyclerView.Adapter<RecyclerAdapter.MyVie
 
 好了，本篇文章就这样子啦，存在总结不到位的地方还望指导，感谢^_^
 
-
+demo 传送门：[BottomSheet](https://github.com/zilianliuxue/AndroidStudy/tree/master/codeSample/BottomSheet)
 
 
 
