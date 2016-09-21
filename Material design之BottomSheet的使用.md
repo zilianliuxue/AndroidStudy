@@ -429,7 +429,9 @@ public class RecyclerAdapter  extends RecyclerView.Adapter<RecyclerAdapter.MyVie
 
 demo 传送门：[BottomSheet](https://github.com/zilianliuxue/AndroidStudy/tree/master/codeSample/BottomSheet)
 
+### more link:
 
+[BottomSheetBuilder - 一个简单的库能够根据Material Design规范创建BottomSheets](http://www.open-open.com/lib/view/open1456737210828.html)
 
 
 
