@@ -6,7 +6,30 @@ TabLayout属于design支持包下，所以需要在gradle加载相关配置：
 compile 'com.android.support:design:24.2.0'
 ```
 
-TabLayout一般和ViewPager一起结合使用：
+TabLayout常用的方法如下： 
+
+> \- addTab(TabLayout.Tab tab, int position, boolean setSelected) 增加选项卡到 layout 中 
+> \- addTab(TabLayout.Tab tab, boolean setSelected) 同上 
+> \- addTab(TabLayout.Tab tab) 同上 
+> \- getTabAt(int index) 得到选项卡 
+> \- getTabCount() 得到选项卡的总个数 
+> \- getTabGravity() 得到 tab 的 Gravity 
+> \- getTabMode() 得到 tab 的模式 
+> \- getTabTextColors() 得到 tab 中文本的颜色 
+> \- newTab() 新建个 tab 
+> \- removeAllTabs() 移除所有的 tab 
+> \- removeTab(TabLayout.Tab tab) 移除指定的 tab 
+> \- removeTabAt(int position) 移除指定位置的 tab 
+> \- setOnTabSelectedListener(TabLayout.OnTabSelectedListener onTabSelectedListener) 为每个 tab 增加选择监听器 
+> \- setScrollPosition(int position, float positionOffset, boolean updateSelectedText) 设置滚动位置 
+> \- setTabGravity(int gravity) 设置 Gravity 
+> \- setTabMode(int mode) 设置 Mode,有两种值：TabLayout.MODE_SCROLLABLE和TabLayout.MODE_FIXED分别表示当tab的内容超过屏幕宽度是否支持横向水平滑动，第一种支持滑动，第二种不支持，默认不支持水平滑动。 
+> \- setTabTextColors(ColorStateList textColor) 设置 tab 中文本的颜色 
+> \- setTabTextColors(int normalColor, int selectedColor) 设置 tab 中文本的颜色 默认 选中 
+> \- setTabsFromPagerAdapter(PagerAdapter adapter) 设置 PagerAdapter 
+> \- setupWithViewPager(ViewPager viewPager) 和 ViewPager 联动
+
+一般TabLayout都是和ViewPager共同使用才发挥它的优势，现在我们通过代码来看看以上方法的使用。
 
 ```java
 <android.support.design.widget.TabLayout
@@ -92,7 +115,11 @@ public CharSequence getPageTitle(int position) {
 
 效果图：
 
-![](http://www.jcodecraeer.com/uploads/20150731/1438307024579982.gif)
+
+
+![这里写图片描述](http://img.blog.csdn.net/20160922135131496)
+
+
 
 
 
@@ -200,71 +227,80 @@ public CharSequence getPageTitle(int position) {
 适配器中增加getTabView(...)方法：
 
 ```java
+package com.losileeya.layout;
+
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ImageSpan;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
- 
-import me.chenfuduo.myfragmentdemo.R;
-import me.chenfuduo.myfragmentdemo.fragment.PageFragment;
- 
+
+import com.losileeya.bottomsheetmaster.R;
+
+import java.util.List;
+
 /**
- * Created by Administrator on 2015/7/30.
+ * User: Losileeya (847457332@qq.com)
+ * Date: 2016-09-22
+ * Time: 13:03
+ * 类描述：
+ *
+ * @version :
  */
 public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
- 
-    final int PAGE_COUNT = 3;
-    private String tabTitles[] = new String[]{"tab1", "tab2", "tab3"};
-    private int[] imageResId = {R.drawable.avatar_enterprise_vip,
-            R.drawable.avatar_grassroot,
-            R.drawable.avatar_vip};
     private Context context;
- 
-    public SimpleFragmentPagerAdapter(FragmentManager fm, Context context) {
+    private List<String> list;
+    private List<? extends Fragment> fs;
+    private int[] imageResId;
+
+    public SimpleFragmentPagerAdapter(FragmentManager fm, List<String> list, List<? extends Fragment> fs, int[] imageResId, Context context) {
         super(fm);
+        this.list = list;
+        this.fs = fs;
+        this.imageResId = imageResId;
         this.context = context;
     }
- 
+
     @Override
     public Fragment getItem(int position) {
-        return PageFragment.newInstance(position + 1);
+        return fs.get(position);
     }
- 
+    public Object instantiateItem(ViewGroup container, int position) {
+        return super.instantiateItem(container, position);
+    }
     @Override
     public int getCount() {
-        return PAGE_COUNT;
-    }
- 
-    @Override
-    public CharSequence getPageTitle(int position) {
-        //第一次的代码
-        //return tabTitles[position];
-        //第二次的代码
-       /**
-         Drawable image = context.getResources().getDrawable(imageResId[position]);
-        image.setBounds(0, 0, image.getIntrinsicWidth(), image.getIntrinsicHeight());
-        SpannableString sb = new SpannableString(" " + tabTitles[position]);
-        ImageSpan imageSpan = new ImageSpan(image, ImageSpan.ALIGN_BOTTOM);
-        sb.setSpan(imageSpan, 0, 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        return sb;*/
- 
- 
-        return null;
+        return list.size();
     }
     public View getTabView(int position){
         View view = LayoutInflater.from(context).inflate(R.layout.tab_item, null);
         TextView tv= (TextView) view.findViewById(R.id.textView);
-        tv.setText(tabTitles[position]);
+        tv.setText(list.get(position));
         ImageView img = (ImageView) view.findViewById(R.id.imageView);
         img.setImageResource(imageResId[position]);
         return view;
     }
- 
+    @Override
+    public CharSequence getPageTitle(int position) {
+        // Generate title based on item position
+        Drawable image = context.getResources().getDrawable(imageResId[position]);
+        image.setBounds(0, 0, image.getIntrinsicWidth(), image.getIntrinsicHeight());
+        // Replace blank spaces with image icon
+        SpannableString sb = new SpannableString("   " + list.get(position));
+        ImageSpan imageSpan = new ImageSpan(image, ImageSpan.ALIGN_BOTTOM);
+        sb.setSpan(imageSpan, 0, 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        return sb;
+    }
 }
+
 ```
 
 简单的布局：
@@ -298,21 +334,27 @@ public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
 使用：
 
 ```java
-@Override
-   protected void onCreate(Bundle savedInstanceState) {
-       super.onCreate(savedInstanceState);
-       setContentView(R.layout.activity_third);
-       pagerAdapter = new SimpleFragmentPagerAdapter(getSupportFragmentManager(), this);
-       viewPager = (ViewPager) findViewById(R.id.viewpager);
-       viewPager.setAdapter(pagerAdapter);
-       tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
-       tabLayout.setupWithViewPager(viewPager);
-       tabLayout.setTabMode(TabLayout.MODE_FIXED);
-       for (int i = 0; i < tabLayout.getTabCount(); i++) {
-           TabLayout.Tab tab = tabLayout.getTabAt(i);
-           tab.setCustomView(pagerAdapter.getTabView(i));
-       }
-   }
+   tabLayout= (TabLayout) findViewById(R.id.tab_layout);
+        viewPager = (ViewPager) findViewById(R.id.view_pager);
+        List<String>tabs= asList("Tab1", "Tab2", "Tab3", "Tab4", "Tab5", "Tab6");
+        List<Fragment> fragmentList = new ArrayList<>();
+        int []imgs={R.drawable.nav_icon_favorite,R.drawable.nav_icon_feedback,R.drawable.nav_icon_followers,R.drawable.nav_icon_following,R.drawable.nav_icon_gift,R.drawable.nav_icon_home};
+        for (int i = 0; i < tabs.size(); i++) {
+            Fragment f1=new TabFragment();
+            Bundle bundle = new Bundle();
+            bundle.putString("content", "TAB"+(i+1));
+            f1.setArguments(bundle);
+            fragmentList.add(f1);
+        }
+        SimpleFragmentPagerAdapter pagerAdapter = new SimpleFragmentPagerAdapter(getSupportFragmentManager(),tabs,fragmentList,imgs,this);
+        viewPager.setAdapter(pagerAdapter);
+        tabLayout.setupWithViewPager(viewPager);
+        //tabLayout.setTabMode(TabLayout.MODE_FIXED);
+        tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
+        for (int i = 0; i < tabLayout.getTabCount(); i++) {
+            TabLayout.Tab tab = tabLayout.getTabAt(i);
+            tab.setCustomView(pagerAdapter.getTabView(i));
+        }
 ```
 
 # 处理配置改变
@@ -336,4 +378,10 @@ public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
 需要注意的是getSelectedTabPosition()方法是最新的design support library才有的。
 最后的效果如下：
 
-![效果图](http://www.jcodecraeer.com/uploads/20150731/1438307025116530.gif)
+
+
+![这里写图片描述](http://img.blog.csdn.net/20160922135154980)
+
+
+
+demo传送门：[tablayout](https://github.com/zilianliuxue/AndroidStudy/tree/master/codeSample/tablayout)
