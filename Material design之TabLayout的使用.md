@@ -8,25 +8,69 @@ compile 'com.android.support:design:24.2.0'
 
 TabLayout常用的方法如下： 
 
-> \- addTab(TabLayout.Tab tab, int position, boolean setSelected) 增加选项卡到 layout 中 
-> \- addTab(TabLayout.Tab tab, boolean setSelected) 同上 
-> \- addTab(TabLayout.Tab tab) 同上 
-> \- getTabAt(int index) 得到选项卡 
-> \- getTabCount() 得到选项卡的总个数 
-> \- getTabGravity() 得到 tab 的 Gravity 
-> \- getTabMode() 得到 tab 的模式 
-> \- getTabTextColors() 得到 tab 中文本的颜色 
-> \- newTab() 新建个 tab 
-> \- removeAllTabs() 移除所有的 tab 
-> \- removeTab(TabLayout.Tab tab) 移除指定的 tab 
-> \- removeTabAt(int position) 移除指定位置的 tab 
-> \- setOnTabSelectedListener(TabLayout.OnTabSelectedListener onTabSelectedListener) 为每个 tab 增加选择监听器 
-> \- setScrollPosition(int position, float positionOffset, boolean updateSelectedText) 设置滚动位置 
-> \- setTabGravity(int gravity) 设置 Gravity 
-> \- setTabMode(int mode) 设置 Mode,有两种值：TabLayout.MODE_SCROLLABLE和TabLayout.MODE_FIXED分别表示当tab的内容超过屏幕宽度是否支持横向水平滑动，第一种支持滑动，第二种不支持，默认不支持水平滑动。 
-> \- setTabTextColors(ColorStateList textColor) 设置 tab 中文本的颜色 
-> \- setTabTextColors(int normalColor, int selectedColor) 设置 tab 中文本的颜色 默认 选中 
-> \- setTabsFromPagerAdapter(PagerAdapter adapter) 设置 PagerAdapter 
+> \- addTab(TabLayout.Tab tab, int position, boolean setSelected) 增加选项卡到 layout 中   
+>
+> 
+>
+> \- addTab(TabLayout.Tab tab, boolean setSelected) 同上   
+>
+> 
+>
+> \- addTab(TabLayout.Tab tab) 同上   
+>
+> 
+>
+> \- getTabAt(int index) 得到选项卡     
+>
+> 
+>
+> \- getTabCount() 得到选项卡的总个数   
+>
+> 
+> \- getTabGravity() 得到 tab 的 Gravity   
+>
+> 
+> \- getTabMode() 得到 tab 的模式   
+>
+> 
+> \- getTabTextColors() 得到 tab 中文本的颜色   
+>
+> 
+> \- newTab() 新建个 tab   
+>
+> 
+> \- removeAllTabs() 移除所有的 tab   
+>
+> 
+> \- removeTab(TabLayout.Tab tab) 移除指定的 tab   
+>
+> 
+> \- removeTabAt(int position) 移除指定位置的 tab   
+>
+> 
+> \- setOnTabSelectedListener(TabLayout.OnTabSelectedListener   
+>
+> onTabSelectedListener) 为每个 tab 增加选择监听器     
+>
+> 
+> \- setScrollPosition(int position, float positionOffset, boolean updateSelectedText) 设置滚动位置   
+>
+> 
+> \- setTabGravity(int gravity) 设置 Gravity   
+>
+> 
+> \- setTabMode(int mode) 设置 Mode,有两种值：TabLayout.MODE_SCROLLABLE和TabLayout.MODE_FIXED分别表示当tab的内容超过屏幕宽度是否支持横向水平滑动，第一种支持滑动，第二种不支持，默认不支持水平滑动。   
+>
+> 
+> \- setTabTextColors(ColorStateList textColor) 设置 tab 中文本的颜色   
+>
+> 
+> \- setTabTextColors(int normalColor, int selectedColor) 设置 tab 中文本的颜色 默认 选中   
+>
+> 
+> \- setTabsFromPagerAdapter(PagerAdapter adapter) 设置 PagerAdapter   
+>
+> 
 > \- setupWithViewPager(ViewPager viewPager) 和 ViewPager 联动
 
 一般TabLayout都是和ViewPager共同使用才发挥它的优势，现在我们通过代码来看看以上方法的使用。
