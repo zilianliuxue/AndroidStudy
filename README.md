@@ -27,3 +27,9 @@
 [**Material design之CoordinatorLayout的使用(一)**](https://github.com/zilianliuxue/AndroidStudy/blob/master/Material%20design%E4%B9%8BCoordinatorLayout%E7%9A%84%E4%BD%BF%E7%94%A8(%E4%B8%80).md)
 
 [**CoordinatorLayout的使用(二)---具体使用**](https://github.com/zilianliuxue/AndroidStudy/blob/master/CoordinatorLayout%E7%9A%84%E4%BD%BF%E7%94%A8(%E4%BA%8C)---%E5%85%B7%E4%BD%93%E4%BD%BF%E7%94%A8.md)
+
+##  Android 实战开发
+
+[**安卓实战之app开机自启**](https://github.com/zilianliuxue/AndroidStudy/blob/master/%E5%AE%89%E5%8D%93%E5%AE%9E%E6%88%98%E4%B9%8Bapp%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF.md)
+
+[**Android开发常用工具类**](https://github.com/zilianliuxue/AndroidStudy/blob/master/Android%E5%BC%80%E5%8F%91%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E7%B1%BB.md)
