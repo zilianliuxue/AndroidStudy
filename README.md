@@ -20,6 +20,13 @@
 ##  Android 实战开发
 
 * [**安卓实战之app开机自启**](https://github.com/zilianliuxue/AndroidStudy/blob/master/Android%20%E5%AE%9E%E6%88%98%E5%BC%80%E5%8F%91/%E5%AE%89%E5%8D%93%E5%AE%9E%E6%88%98%E4%B9%8Bapp%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF.md)
+
 * [**Android开发常用工具类**](https://github.com/zilianliuxue/AndroidStudy/blob/master/Android%20%E5%AE%9E%E6%88%98%E5%BC%80%E5%8F%91/Android%E5%BC%80%E5%8F%91%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E7%B1%BB.md)
+
 * [**沉浸式状态栏**](https://github.com/zilianliuxue/AndroidStudy/blob/master/Android%20%E5%AE%9E%E6%88%98%E5%BC%80%E5%8F%91/%E6%B2%89%E6%B5%B8%E5%BC%8F%E7%8A%B6%E6%80%81%E6%A0%8F.md)
+
+* [**安卓开发实战之app之版本更新(DownloadManager和http下载)完整实现**](https://github.com/zilianliuxue/AndroidStudy/blob/master/Android%20%E5%AE%9E%E6%88%98%E5%BC%80%E5%8F%91/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98%E4%B9%8Bapp%E4%B9%8B%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B0(DownloadManager%E5%92%8Chttp%E4%B8%8B%E8%BD%BD)%E5%AE%8C%E6%95%B4%E5%AE%9E%E7%8E%B0.md)
+
+  ​
+
 
