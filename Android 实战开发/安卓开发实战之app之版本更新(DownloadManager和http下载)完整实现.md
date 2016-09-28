@@ -1,3 +1,4 @@
+### **前言**
 本文将讲解app的升级与更新。一般而言用户使用App的时候升级提醒有两种方式获得：
 
 - 一种是通过应用市场 获取
@@ -30,7 +31,7 @@ http://192.168.191.1:8081/update
 
 一般作为一个安卓程序员要测试还得写一个服务端（醉了），这里我就使用nodejs来搞一个本地的服务器来测试下app的版本更新检验。
 
-根据请求的结果，我这里就写一个简单的json
+* 根据请求的结果，我这里就写一个简单的json
 
 ```java
 {"data":{
@@ -67,7 +68,7 @@ var server = app.listen(8081, function () {//端口我这里写的是8081
 
 有webstrom的直接选中文件run就ok了，没有直接  node express_demo.js，可以直接浏览器打开：http://127.0.0.1:8081/update
 
-效果如下：
+* 效果如下：
 
 ![这里写图片描述](http://img.blog.csdn.net/20160928143355881)
 
@@ -75,7 +76,7 @@ var server = app.listen(8081, function () {//端口我这里写的是8081
 
 ![这里写图片描述](http://img.blog.csdn.net/20160928143341506)
 
-下图为webstrom的终端显示结果。
+上图为webstrom的终端显示结果。
 
 ### **客户端需要实现：**
 
@@ -122,7 +123,7 @@ var server = app.listen(8081, function () {//端口我这里写的是8081
 > 3. 下载apk我们分别使用DownloadManager和普通的httpurlconnection
 > 4. 通过BroadcastReceiver来监听是否下载完成
 
-#### 准备bean
+#### **准备bean**
 
 首先我们要去解析服务端给的json，那么我们就要来创建一个bean类了,这里是严格根据json文件的格式来的：
 
@@ -160,7 +161,7 @@ public class UpdateAppInfo  {
 }
 ```
 
-#### 网络接口的实现
+#### **网络接口的实现**
 
 > 这里使用retrofit和rxjava来练笔
 
@@ -320,7 +321,7 @@ public class ServiceFactory {
 > .setCancelable(false)
 > ```
 
-####  使用谷歌推荐的DownloadManager实现下载
+####  **使用谷歌推荐的DownloadManager实现下载**
 
 Android自带的DownloadManager模块来下载,在api level 9之后，我们通过通知栏知道, 该模块属于系统自带, 它已经帮我们处理了下载失败、重新下载等功能。整个下载 过程全部交给系统负责，不需要我们过多的处理。
 
@@ -590,7 +591,7 @@ public class DownLoadApk {
 
 上面的代码可知：我们通过获取当前app的信息来比较是否需要下载和是否立即安装。第一次下载把downloadId保存到本地，用户下次进来的时候，取出保存的downloadId，然后通过downloadId来获取下载的状态信息。如果下载失败，则重新下载并且把downloadId存起来。如果下载成功，则`判断本地的apk的包名是否和当前程序是相同的，并且本地apk的版本号大于当前程序的版本`，如果都满足则直接启动安装程序。
 
-### 监听app是否安装完成
+### **监听app是否安装完成**
 
 ```java
 public class ApkInstallReceiver extends BroadcastReceiver {
@@ -626,7 +627,7 @@ public class ApkInstallReceiver extends BroadcastReceiver {
 
 ```
 
-DownloadManager下载完成后会发出一个广播 `android.intent.action.DOWNLOAD_COMPLETE` 新建一个广播接收者即可：
+DownloadManager下载完成后会发出一个广播 `android.intent.action.DOWNLOAD_COMPLETE` 新建一个广播接收者即可：
 
 清单配置：
 
@@ -647,7 +648,7 @@ DownloadManager下载完成后会发出一个广播 `android.intent.action.DOWN
         </receiver>
 ```
 
-#### 使用HttpUrlConnection下载
+#### **使用HttpUrlConnection下载**
 
 这种情况下载的话我们就不需要考虑id的问题，因为是直接在项目中下载，所以我们就是一个网络下载的过程，并且使用ProgressDialog显示下载信息及进度更新就ok了。
 
@@ -783,7 +784,7 @@ public class AppInnerDownLoder {
 }
 ```
 
-基本上具体的代码就写完了，但是说如果停止了`下载管理程序` 调用dm.enqueue(req);就会上面的错误,从而程序闪退.
+基本上具体的代码就写完了，但是说如果停止了`下载管理程序` 调用dm.enqueue(req);就会上面的错误,从而程序闪退.
 
 所以在使用该组件的时候,需要判断该组件是否可用:
 
@@ -805,7 +806,7 @@ public class AppInnerDownLoder {
     }
 ```
 
-可以通过如下代码进入 启用/禁用 下载管理 界面:
+可以通过如下代码进入 启用/禁用 下载管理 界面:
 
 ```java
  String packageName = "com.android.providers.downloads";
@@ -814,7 +815,7 @@ public class AppInnerDownLoder {
     startActivity(intent);
 ```
 
-### 总结
+### **总结**
 
 本文意在讲解app的更新逻辑以及不同的表现形式的处理附带的介绍了使用nodejs写一个简单的api接口，重点是如何使用DownloadManager来实现apk的下载更新安装，顺带讲一下retrofit+rxjava的使用以及如何监听app是否下载完成。
 
@@ -842,9 +843,9 @@ DownloadManager的使用概括：
 >
 > 4. DownManager会对所有的现在任务进行保存管理，那么我们如何获取这些信息呢？这个时候就要用到DownManager.Query对象，通过此对象，我们可以查询所有下载任务信息。
 >
->    **setFilterById(long… ids)：根据任务编号查询下载任务信息**
+>    **setFilterById(long… ids)：根据任务编号查询下载任务信息**
 >
->    **setFilterByStatus(int flags)：根据下载状态查询下载任务**
+>    **setFilterByStatus(int flags)：根据下载状态查询下载任务**
 >
 > 5. 如果想取消下载，则可以调用remove方法完成，此方法可以将下载任务和已经下载的文件同时删除：
 >
@@ -852,8 +853,6 @@ DownloadManager的使用概括：
 >    downManager.remove(id);
 >    ```
 
-好了具体的都讲的差不多了，本文以同步到我的[github]()
+好了具体的都讲的差不多了，本文以同步到我的csdn:[安卓开发实战之app之版本更新升级(DownloadManager和http下载)完整实现](http://blog.csdn.net/u013278099/article/details/52692008)
 
-
-
-demo 传送门：[]()
+demo 传送门：[AppUpdate.rar](http://download.csdn.net/detail/u013278099/9642306)
