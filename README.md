@@ -17,6 +17,21 @@
 * [Material design之CoordinatorLayout的使用(一)](https://github.com/zilianliuxue/AndroidStudy/blob/master/Material%20design/Material%20design%E4%B9%8BCoordinatorLayout%E7%9A%84%E4%BD%BF%E7%94%A8(%E4%B8%80).md)
 * [CoordinatorLayout的使用(二)---具体使用](https://github.com/zilianliuxue/AndroidStudy/blob/master/Material%20design/CoordinatorLayout%E7%9A%84%E4%BD%BF%E7%94%A8(%E4%BA%8C)---%E5%85%B7%E4%BD%93%E4%BD%BF%E7%94%A8.md)
 
+### java 基础
+
+* [java基础](https://github.com/zilianliuxue/AndroidStudy/blob/master/java%E5%9F%BA%E7%A1%80/java%E5%9F%BA%E7%A1%80.md)
+* [垃圾回收算法](https://github.com/zilianliuxue/AndroidStudy/blob/master/java%E5%9F%BA%E7%A1%80/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95.md)
+* [Java中的内存泄漏](https://github.com/zilianliuxue/AndroidStudy/blob/master/java%E5%9F%BA%E7%A1%80/Java%E4%B8%AD%E7%9A%84%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F.md)
+* [Java中System.loadLibrary() 的执行过程](https://github.com/zilianliuxue/AndroidStudy/blob/master/java%E5%9F%BA%E7%A1%80/Java%E4%B8%ADSystem.loadLibrary()%20%E7%9A%84%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B%20.md)
+* [Http协议](https://github.com/zilianliuxue/AndroidStudy/blob/master/java%E5%9F%BA%E7%A1%80/Http%E5%8D%8F%E8%AE%AE.md)
+* [TCP与UDP](https://github.com/zilianliuxue/AndroidStudy/blob/master/java%E5%9F%BA%E7%A1%80/TCP%E4%B8%8EUDP.md)
+* [Socket](https://github.com/zilianliuxue/AndroidStudy/blob/master/java%E5%9F%BA%E7%A1%80/Socket%E4%BD%BF%E7%94%A8.md)
+
+### 安卓原理
+
+* [Android JNI原理分析](https://github.com/zilianliuxue/AndroidStudy/blob/master/android%E5%8E%9F%E7%90%86/Android%20JNI%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90.md)
+* [Android系统启动-zygote篇](https://github.com/zilianliuxue/AndroidStudy/blob/master/android%E5%8E%9F%E7%90%86/Android%E7%B3%BB%E7%BB%9F%E5%90%AF%E5%8A%A8-zygote%E7%AF%87.md)
+
 ##  Android 实战开发
 
 * [安卓实战之app开机自启](https://github.com/zilianliuxue/AndroidStudy/blob/master/Android%20%E5%AE%9E%E6%88%98%E5%BC%80%E5%8F%91/%E5%AE%89%E5%8D%93%E5%AE%9E%E6%88%98%E4%B9%8Bapp%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF.md)
@@ -29,16 +44,15 @@
 
 * 安卓ndk开发
 
-  * 问我 
+  * [安卓实战开发之JNI入门及高效的配置（android studio一键生成.h,so及方法签名)](https://github.com/zilianliuxue/AndroidStudy/blob/master/Android%20%E5%AE%9E%E6%88%98%E5%BC%80%E5%8F%91/%E5%AE%89%E5%8D%93%E5%AE%9E%E6%88%98%E5%BC%80%E5%8F%91%E4%B9%8BJNI%E5%85%A5%E9%97%A8%E5%8F%8A%E9%AB%98%E6%95%88%E7%9A%84%E9%85%8D%E7%BD%AE%EF%BC%88android%20studio%E4%B8%80%E9%94%AE%E7%94%9F%E6%88%90.h%2Cso%E5%8F%8A%E6%96%B9%E6%B3%95%E7%AD%BE%E5%90%8D%EF%BC%89.md)
 
-  * [Android NDK开发之Android.mk]()  
+  * [Android NDK开发之Android.mk](https://github.com/zilianliuxue/AndroidStudy/blob/master/Android%20%E5%AE%9E%E6%88%98%E5%BC%80%E5%8F%91/Android%20NDK%E5%BC%80%E5%8F%91%E4%B9%8BAndroid.mk%E4%BD%BF%E7%94%A8.md)  
 
-  * [ 安卓实战开发之JNI入门及高效的配置（android studio一键生成.h,so及方法签名)]()
+  * [安卓实战开发之JNI从小白到伪老白深入了解JNI动态注册native方法及JNI数据使用](https://github.com/zilianliuxue/AndroidStudy/blob/master/Android%20%E5%AE%9E%E6%88%98%E5%BC%80%E5%8F%91/%E5%AE%89%E5%8D%93%E5%AE%9E%E6%88%98%E5%BC%80%E5%8F%91%E4%B9%8BJNI%E4%BB%8E%E5%B0%8F%E7%99%BD%E5%88%B0%E4%BC%AA%E8%80%81%E7%99%BD%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3JNI%E5%8A%A8%E6%80%81%E6%B3%A8%E5%86%8Cnative%E6%96%B9%E6%B3%95%E5%8F%8AJNI%E6%95%B0%E6%8D%AE%E4%BD%BF%E7%94%A8.md)
 
     ​
 
-       
 
-  ​
+  
 
 
